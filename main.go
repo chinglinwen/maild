@@ -12,6 +12,7 @@ import (
 )
 
 var (
+	port        = flag.String("p", "3001", "listening port")
 	smtpAddr    = flag.String("smtpaddr", "", "smtp address")
 	smtpPort    = flag.Int("port", 25, "smtp port")
 	smtpUser    = flag.String("user", "", "smtp user")
@@ -21,7 +22,7 @@ var (
 
 func main() {
 	http.HandleFunc("/", mailHandler)
-	log.Fatal(http.ListenAndServe(":3001", nil))
+	log.Fatal(http.ListenAndServe(":"+*port, nil))
 }
 
 func mailHandler(w http.ResponseWriter, r *http.Request) {

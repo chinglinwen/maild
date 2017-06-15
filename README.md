@@ -7,6 +7,8 @@ mail http service
 Usage of ./maild:
   -from string
         from (default=user)
+  -p string
+        listening port (default "3001")
   -pass string
         smtp pass
   -port int

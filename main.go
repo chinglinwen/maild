@@ -6,7 +6,7 @@ import (
 	"net/http"
 	"strings"
 
-	"github.com/lumberjack"
+	"github.com/natefinch/lumberjack"
 	gomail "gopkg.in/gomail.v2"
 	"hdgit.com/golib/log"
 )
@@ -39,6 +39,7 @@ func mailHandler(w http.ResponseWriter, r *http.Request) {
 	if body == "" {
 		body = "empty"
 	}
+	fmt.Println("body:", body)
 	from := r.FormValue("from")
 	if from == "" {
 		from = *defaultfrom

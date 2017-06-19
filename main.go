@@ -39,7 +39,6 @@ func mailHandler(w http.ResponseWriter, r *http.Request) {
 	if body == "" {
 		body = "empty"
 	}
-	fmt.Println("body:", body)
 	from := r.FormValue("from")
 	if from == "" {
 		from = *defaultfrom

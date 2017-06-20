@@ -62,7 +62,7 @@ func mail(from, subject, body string, receivers []string) error {
 	m.SetHeader("From", from)
 	m.SetHeader("To", receivers...)
 	m.SetHeader("Subject", subject)
-	m.SetBody("text/html", body)
+	m.SetBody("text/plain", body)
 	d := gomail.NewDialer(*smtpAddr, *smtpPort, *smtpUser, *smtpPass)
 	return d.DialAndSend(m)
 }

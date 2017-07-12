@@ -8,7 +8,7 @@ import (
 
 	"github.com/natefinch/lumberjack"
 	gomail "gopkg.in/gomail.v2"
-	"hdgit.com/golib/log"
+	"github.com/chinglinwen/log"
 )
 
 var (

@@ -26,4 +26,6 @@ Usage of ./maild:
 ./maild -smtpaddr your_smtpaddress -pass your_password -user example@example.com
 
 curl -s -F receiver="example@example.com" -F subject="hello" -F body="body text" localhost:3001
+
+Recommend to use http POST.
 ```

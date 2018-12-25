@@ -1,12 +1,13 @@
 package main
 
 import (
-	"flag"
+	"github.com/namsral/flag"
 	"fmt"
 	"net/http"
 	"strings"
+	"crypto/tls"
 
-	"github.com/natefinch/lumberjack"
+	//"github.com/natefinch/lumberjack"
 	gomail "gopkg.in/gomail.v2"
 	"github.com/chinglinwen/log"
 )
@@ -64,6 +65,8 @@ func mail(from, subject, body string, receivers []string) error {
 	m.SetHeader("Subject", subject)
 	m.SetBody("text/plain", body)
 	d := gomail.NewDialer(*smtpAddr, *smtpPort, *smtpUser, *smtpPass)
+        d.TLSConfig = &tls.Config{InsecureSkipVerify: true}
+
 	return d.DialAndSend(m)
 }
 
@@ -72,11 +75,13 @@ func init() {
 	if *defaultfrom == "" {
 		*defaultfrom = *smtpUser
 	}
+	/*
 	log.SetOutput(&lumberjack.Logger{
 		Filename:   "maild.log",
 		MaxSize:    500, // megabytes
 		MaxBackups: 3,
 		MaxAge:     28, //days
 	})
+	*/
 	log.Println("starting...")
 }

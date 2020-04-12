@@ -1,24 +1,26 @@
 package main
 
 import (
-	"github.com/namsral/flag"
+	"crypto/tls"
 	"fmt"
 	"net/http"
 	"strings"
-	"crypto/tls"
+
+	"github.com/namsral/flag"
 
 	//"github.com/natefinch/lumberjack"
-	gomail "gopkg.in/gomail.v2"
 	"github.com/chinglinwen/log"
+	gomail "gopkg.in/gomail.v2"
 )
 
 var (
-	port        = flag.String("p", "3001", "listening port")
-	smtpAddr    = flag.String("smtpaddr", "", "smtp address")
-	smtpPort    = flag.Int("port", 25, "smtp port")
-	smtpUser    = flag.String("user", "", "smtp user")
-	smtpPass    = flag.String("pass", "", "smtp pass")
-	defaultfrom = flag.String("from", "", "from (default=user)")
+	port     = flag.String("p", "3001", "listening port")
+	smtpAddr = flag.String("smtpaddr", "smtp.163.com", "smtp address")
+	smtpPort = flag.Int("port", 25, "smtp port")
+	smtpUser = flag.String("user", "m18801342613@163.com", "smtp user")
+	// smtpPass    = flag.String("pass", "EAPKMIATTYGPKTVD", "smtp pass")
+	smtpPass    = flag.String("pass", "1989o115", "smtp pass")
+	defaultfrom = flag.String("from", "m18801342613@163.com", "from (default=user)")
 )
 
 func main() {
@@ -65,7 +67,7 @@ func mail(from, subject, body string, receivers []string) error {
 	m.SetHeader("Subject", subject)
 	m.SetBody("text/plain", body)
 	d := gomail.NewDialer(*smtpAddr, *smtpPort, *smtpUser, *smtpPass)
-        d.TLSConfig = &tls.Config{InsecureSkipVerify: true}
+	d.TLSConfig = &tls.Config{InsecureSkipVerify: true}
 
 	return d.DialAndSend(m)
 }
@@ -76,12 +78,12 @@ func init() {
 		*defaultfrom = *smtpUser
 	}
 	/*
-	log.SetOutput(&lumberjack.Logger{
-		Filename:   "maild.log",
-		MaxSize:    500, // megabytes
-		MaxBackups: 3,
-		MaxAge:     28, //days
-	})
+		log.SetOutput(&lumberjack.Logger{
+			Filename:   "maild.log",
+			MaxSize:    500, // megabytes
+			MaxBackups: 3,
+			MaxAge:     28, //days
+		})
 	*/
 	log.Println("starting...")
 }

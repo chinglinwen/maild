@@ -1,0 +1,6 @@
+github.com/chinglinwen/log v0.0.0-20180802093412-402fdc33bf76 h1:CupGZ+1pK0bVmwlLsIv86p50M3doqJU5wx8XXXRz8vY=
+github.com/chinglinwen/log v0.0.0-20180802093412-402fdc33bf76/go.mod h1:ScnZN8A3LOA1xcpbZqAnhgcmGk/nPpHcHk/kxs0JcMk=
+github.com/namsral/flag v1.7.4-pre h1:b2ScHhoCUkbsq0d2C15Mv+VU8bl8hAXV8arnWiOHNZs=
+github.com/namsral/flag v1.7.4-pre/go.mod h1:OXldTctbM6SWH1K899kPZcf65KxJiD7MsceFUpB5yDo=
+gopkg.in/gomail.v2 v2.0.0-20160411212932-81ebce5c23df h1:n7WqCuqOuCbNr617RXOY0AWRXxgwEyPp2z+p0+hgMuE=
+gopkg.in/gomail.v2 v2.0.0-20160411212932-81ebce5c23df/go.mod h1:LRQQ+SO6ZHR7tOkpBDuZnXENFzX8qRjMDMyPD6BRkCw=
